@@ -1,0 +1,82 @@
+body{
+
+
+background-color: white;
+margin-left:5%;
+margin-right:5%;
+}
+
+header{
+
+	background-color: yellow;
+
+    width: auto;
+    height: 80px;
+
+
+}
+
+#main{
+
+background-color: lightblue;
+
+float:left; 
+
+width:40%;
+
+height: 220px;
+
+
+}
+
+
+#count{
+
+background-color: lightgrey;
+
+float:left; 
+
+width: 25%;
+
+height: 220px;
+
+
+}
+
+#abc{
+	 height:220px; 
+	 width:35% ;
+	 float:left;
+}
+
+
+
+#buysearch{
+
+float:left;
+
+width: 25%;
+
+height:1000px;
+
+}
+
+
+#broad{
+
+float:left;
+
+width: 70%;
+
+height:1000px;
+
+}
+
+
+
+
+li{ 
+list-style-type:none; 
+width:50px; 
+float:left; 
+} 

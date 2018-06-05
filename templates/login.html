@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+<title>Lgoin Form</title>
+</head>
+<body>
+
+
+
+     <div class="container">
+     	
+       <form class="form-signin" method="POST" action="/login" >
+         <h2 class="form-sgnin-heading">Please sign in</h2>
+         {{ form.hidden_tag() }}
+         {{ form.username.label }}
+         <br>
+         {{ form.username }}
+         <ul>
+         {% for error in form.username.errors %}
+            <li style="color:red">{{ error }}</li>
+         {% endfor %}
+         </ul>
+         <br>
+         {{ form.password.label }}
+         <br>
+         {{ form.password }}
+         
+         <input type="submit" value="Sign In">
+          
+       </form>
+
+     </div>
+
+</body>
+
+             
+        	   
+          
+
+
+
+
+
+      
+
+
+
+
+
+
+

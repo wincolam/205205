@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="buy.css" />
+
+
+
+
+
+
+	
+</head>
+
+
+
+
+<body>
+     
+  <div id="page">
+
+  	<header>
+    <div style="float:left;" >
+		<li style="width:100px;"><a href="//www.28hse.com/"     >Main Page</a></li>
+		<li><a href="//www.28hse.com/buy"  >Buy</a></li>
+		<li><a href="//www.28hse.com/rent" >Rent</a></li>
+		<li style="width:100px;"><a href="//www.28hse.com/utf8/help.php" >Help Centre</a></li>
+	  </div>
+
+	  <div style="float:right;">
+		<li style="width:100px;"><a href="//www.28hse.com/utf8/member.php" class="current" ref='nofollow'>LogIn</a>
+    <input type="text" size="15" name="loginname" placeholder="login name">
+    <input type="text" size="15" name="password" placeholder="password"></li>
+		<li style="width:100px;"><a href="//www.28hse.com/utf8/register.php" class="current" ref='nofollow'>Sign Up</a></li>
+	 </div>
+    </header>
+
+     <div id="main">
+        <nav>
+        	   Search
+              <p>Area:</p>
+              <li><a href="//www.28hse.com/">All</a></li>
+              <li style="width:100px;"><a href="//www.28hse.com/">HK Island</a></li>
+              <li style="width:100px;"><a href="//www.28hse.com/">Kowloon</a></li>
+              <li><a href="//www.28hse.com/">N.T</a></li>
+              <li><a href="//www.28hse.com/">Island</a></li>
+             <br>
+             <br>
+              <p>Type:</p>
+              <li><a href="//www.28hse.com/">All</a></li>
+              <li style="width:100px;"><a href="//www.28hse.com/">Residential</a></li>
+              <li style="width:160px;"><a href="//www.28hse.com/">Business Building</a></li>
+              <li style="width:75px;"><a href="//www.28hse.com/">Stores</a></li>
+              <li style="width:160px;"><a href="//www.28hse.com/">Parking spaces</a></li>
+             <br>
+
+            <form style="float:left;">
+        	    <div>
+        		     
+        		     <input type="text" size="30" name="searchresult" placeholder="Search:Area, Housing">
+        		     <input type="submit" value=Search>
+        	    </div>
+            </form>
+       
+        </nav>
+
+   </div>
+
+
+   <div id="count"> 
+        <nav>
+          
+             <div id="mb-tit clearfix"><span>Mortgage Calculator</span></div>
+
+       <form method="post" id="first" name="first" ;>
+        <div>         
+        <input type="text" size="18" name="sale_price" id="sale_price" placeholder="Property Value(ten thousand)"> <label >x $10000</label>
+       </div>
+        <br>
+       <div> 
+        <input type="text" size="18" name="down_percent" id="down_percent" placeholder="Loan Ratio(%)"> <label >%</label>
+       </div> 
+        <br>
+       <div> 
+        <input type="text" size="18" name="year_term" id="year_term" placeholder="Mortgage Repayment Period(year)"> <label >Year</label>
+       </div>   
+        <br>
+       <div> 
+        <input type="text" size="18" name="annual_interest_percent" id="annual_interest_percent" placeholder="Monthly Mortgage (%)"> <label >%</label>
+       </div>   
+      
+       <div class="countb">
+          <div>
+
+                      <button type="button" onclick="">Mortgage calculation</button>
+                                      
+          </div>
+          
+       </div> 
+       
+       <div class="cal_result" style="display:none;">
+          <div class="cal_result_head" style="margin-bottom:10px;margin-top:10px;">
+            Mortgage Calculation Results
+          </div>
+          
+          <div>
+          <label for="monthlyrepay">Monthly contributions:</label> <input type="text" name="monthlyrepay" id="monthlyrepay" size="13" class="mort_cal_form_input">
+          </div>
+          <div>
+          <label for="total_loan">Loan Amount:</label> <input type="text" name="total_loan" id="total_loan" size="13" class="mort_cal_form_input"> <label for="total_loan">萬元</label>
+          </div>          
+       </div>
+       </form>
+         
+
+        </nav>
+
+         
+         
+
+
+
+
+     </div>
+
+
+          <div id="abc"></div>
+
+
+
+     <div id="buysearch" style="border:3px #cccccc solid;">
+
+
+                        <div id='right_content'>
+                          <div class="the_search_state">
+                            <div class="float_left"><strong>Search criteria</strong>
+                            </div>
+                            <div class="float_left condition_box">
+                              <div class="condition_box_item" data-inside='s_myrelated' style="display:none;"><span class="inner_value"></span> <span class="search_icon_bw icon_close"></span></div>
+                              <div class="condition_box_item" data-inside='district' style="display:none;"><span class="inner_value"></span> <span class="search_icon_bw icon_close"></span></div>
+                              <div class="condition_box_item" data-inside='cat' style="display:none;"><span class="inner_value"></span> <span class="search_icon_bw icon_close"></span></div>
+                              <div class="condition_box_item" data-inside='s_cat_child_tag' style="display:none;"><span class="inner_value"></span> <span class="search_icon_bw icon_close"></span></div>
+                              <div class="condition_box_item" data-inside='s_type' style="display:none;"><span class="inner_value"></span> <span class="search_icon_bw icon_close"></span></div><!-- <div class="condition_box_item" data-inside='s_typeg' style="display:none;"><span class="inner_value"></span> <span class="search_icon_bw icon_close"></span></div> -->
+                              <div class="condition_box_item" data-inside='s_sellrent_tag' style="display:none;"><span class="inner_value"></span> <span class="search_icon_bw icon_close"></span></div>
+                              <div class="condition_box_item" data-inside='s_sellrent_range_tag' style="display:none;"><span class="inner_value"></span> <span class="search_icon_bw icon_close"></span></div>
+                              <div class="condition_box_item" data-inside='s_source_tag' style="display:none;"><span class="inner_value"></span> <span class="search_icon_bw icon_close"></span></div>
+                              <div class="condition_box_item" data-inside='s_roomno_tag' style="display:none;"><span class="inner_value"></span> <span class="search_icon_bw icon_close"></span></div>
+                              <div class="condition_box_item" data-inside='s_area_tag' style="display:none;"><span class="inner_value"></span> <span class="search_icon_bw icon_close"></span></div>
+                              <div class="condition_box_item" data-inside='s_age_tag' style="display:none;"><span class="inner_value"></span> <span class="search_icon_bw icon_close"></span></div>
+                              <div class="condition_box_item" data-inside='s_rent' style="display:none;"><span class="inner_value"></span> <span class="search_icon_bw icon_close"></span></div>
+                              <div class="condition_box_item" data-inside='keywords_tag' style="display:none;"><span class="inner_value"></span> <span class="search_icon_bw icon_close"></span></div>
+                              <div class="condition_box_item" data-inside='cached_fav_tag' style="display:none;"><span class="inner_value"></span> <span class="search_icon_bw icon_close"></span></div>
+                              <div class="condition_box_item" data-inside='stored_fav_tag' style="display:none;"><span class="inner_value"></span> <span class="search_icon_bw icon_close"></span></div></div>
+
+                        <div class="sh-title"><span class="search_icon_bw icon_pt_down control_cached"></span>Search criteria<input type="button" class="resetSh" value="Reset" onclick="javascript:search_change_reset();"></div>
+                        
+                     
+                        <dl class="sales_price" data-inside="s_sellrange" data-inside-box-item="s_sellrent_range_tag"><dt class=""><span class="search_icon_bw icon_pt_down"></span>Selling price</dt>
+                          <dd style="display: block;"><a href="javascript:;" data-bind="1">500,000 or less</a></dd>
+                          <dd><a href="javascript:;" data-bind="2">50-200(m)</a></dd>
+                          <dd><a href="javascript:;" data-bind="3">200-400(m)</a></dd>
+                          <dd><a href="javascript:;" data-bind="4">400-800(m)</a></dd>
+                          <dd><a href="javascript:;" data-bind="5">800-2,000(m)</a></dd>
+                          <dd><a href="javascript:;" data-bind="6">More than2,000(m)</a></dd>
+                        
+
+                        <dl class="property_room"  data-inside="s_roomno" data-inside-box-item="s_roomno_tag"><dt class=""><span class="search_icon_bw icon_pt_down"></span>Interval</dt>
+                          <dd style="display: block;"><a href="javascript:;" data-bind="7">Studio</a>   <a href="javascript:;" data-bind="1">1room</a></dd>
+                          <dd style="display: block;"><a href="javascript:;" data-bind="2">2room</a>  <a href="javascript:;" data-bind="3">3room</a></dd>
+                          <dd style="display: block;"><a href="javascript:;" data-bind="4">4room</a>   <a href="javascript:;" data-bind="5">5room</a></dd>
+                        </dl>
+
+                        <dl class="property_area" data-inside="s_area" data-inside-box-item="s_area_tag"><dt class=""><span class="search_icon_bw icon_pt_down"></span>Area(Square feet)</dt>
+                          <dd style="display: block;"><input type="radio" name='s_area_buildact' value="1" checked="checked" id='property_area_buildoractual_1'><label for="property_area_buildoractual_1">Construction area</label><input type="radio" name='s_area_buildact' value="2" id='property_area_buildoractual_2'><label for="property_area_buildoractual_2">Useful area</label></dd>
+                          <dd style="display: block;"><a href="javascript:;" data-bind="1">100Sq.ft. or less</a></dd>
+                          <dd><dd><a href="javascript:;" data-bind="2">100-500Sq.ft.</a></dd>
+                          <dd><a href="javascript:;" data-bind="3">500-1,000Sq.ft.</a></dd>
+                          <dd><a href="javascript:;" data-bind="4">1,000-2,000Sq.ft.</a></dd>
+                          <dd><a href="javascript:;" data-bind="5">More than 2,000Sq.ft.</a></dd>
+                          
+                        </dl>
+
+                        <dl class="property_age" data-inside="s_age" data-inside-box-item="s_age_tag"><dt class=""><span class="search_icon_bw icon_pt_down"></span>Estate age</dt>
+                          <dd><a href="javascript:;" data-bind="1">1year or less</a></dd>
+                          <dd><a href="javascript:;" data-bind="2">10year or less</a></dd>
+                          <dd><a href="javascript:;" data-bind="3">10-25year</a></dd>
+                          <dd><a href="javascript:;" data-bind="4">25-50year</a></dd>
+                          <dd><a href="javascript:;" data-bind="5">More than 50year</a></dd>
+                         
+               
+
+
+          
+                        </div>
+                        </div>
+
+                  </div>
+
+                  <div id="broad" style="border:3px #cccccc solid;" >
+
+                           
+                                 
+
+                  </div>
+
+              
+                
+
+
+
+     
+
+
+
+    </div>
+</body>
+
+</html>
+
+

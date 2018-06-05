@@ -1,0 +1,67 @@
+body{
+
+
+background-color: white;
+margin-left:10%;
+margin-right:10%;
+}
+
+header{
+
+	background-color: yellow;
+
+    width: auto;
+    height: 60px;
+
+
+}
+
+#main{
+
+background-color: lightblue;
+
+float:left; 
+
+width: 500px;
+
+height: 220px;
+
+
+}
+
+
+#count{
+
+background-color: lightgrey;
+
+float:left; 
+
+width: auto;
+
+height: 220px;
+
+
+}
+
+
+#mainshow{
+
+
+
+margin-top: 250px;
+
+width: 50%;
+
+height: 1000px;
+
+
+}
+
+
+
+li{ 
+list-style-type:none; 
+width:100%; 
+width:90px; 
+float:left; 
+} 

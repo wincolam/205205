@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+     
+       <form action = "http://localhost:5000/signup" method = 'Post' >
+         <fieldset>
+           <legend>Signup Form</legend>
+           {{form.hidden_tag()}}
+
+           <div style = "font-size:20px; font-weight:bold; margin-left:150px;">
+             
+             {{form.username.label }}
+             <br>
+             {{form.username}}
+              {% for message in form.username.errors %}
+            <span style="color:red"></span>
+             {% endfor %}
+
+             <br>
+             {{ form.password.label}}<br>
+             {{form.password}}
+             <br>
+
+             {{form.submit}}
+            </div>
+         </fieldset>
+       </form>
+             
+        	   
+          
+
+
+
+
+
