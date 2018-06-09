@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+li{ 
+list-style-type:none; 
+width:50px; 
+float:left; 
+} 
+  
+</style>
+
+<title>Win House</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="/static/css/bootstrap.min.css"> 
+<!-- <link rel="stylesheet" href="css/bootstrap.min.css">-->
+
+<!-- bootstrap js -->
+
+<script src="/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="/static/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!--<script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>  no this file
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+-->
+
+
+</head>
+<body style="background-color: white;margin-left:5%;margin-right:5%;">
+  <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+  
+  
+ <div id="page" class="row">
+  <header >
+      <div style="background-color:red;" class="col-xs-12 col-sm-6 col-md-8">
+        <img style="max-width:120px; margin-top: -7px;" src="{{url_for('static', filename='main.jpg') }}">
+        <br>
+        <li style="width:100px;"><a href="//www.28hse.com/">Main Page</a></li>
+        <li><a href="//www.28hse.com/buy"  >Buy</a></li>
+        <li><a href="//www.28hse.com/rent" >Rent</a></li>
+        <li style="width:100px;"><a href="//www.28hse.com/utf8/help.php" >Help Centre</a></li>
+      </div>
+
+       <div style="background-color: lightblue;" class="col-xs-6 col-md-4"><li style="width:100px;"><a href="//www.28hse.com/utf8/member.php" class="current" ref='nofollow'>LogIn</a>
+        <input type="text" size="15" name="loginname" placeholder="login name">
+        <input type="text" size="15" name="password" placeholder="password">
+        <li style="width:100px;"><a href="//www.28hse.com/utf8/register.php" class="current" ref='nofollow'>Sign Up</a></li>
+      </div>      
+  </header>
+
+  <div class="row">
+  <div class="col-xs-6 col-sm-4">Search
+              <p>Area:</p>
+              <li><a href="//www.28hse.com/">All</a></li>
+              <li style="width:100px;"><a href="//www.28hse.com/">HK Island</a></li>
+              <li style="width:100px;"><a href="//www.28hse.com/">Kowloon</a></li>
+              <li><a href="//www.28hse.com/">N.T</a></li>
+              <li><a href="//www.28hse.com/">Island</a></li>
+             <br>
+             <br>
+              <p>Type:</p>
+              <li><a href="//www.28hse.com/">All</a></li>
+              <li style="width:100px;"><a href="//www.28hse.com/">Residential</a></li>
+              <li style="width:160px;"><a href="//www.28hse.com/">Business Building</a></li>
+              <li style="width:75px;"><a href="//www.28hse.com/">Stores</a></li>
+              <li style="width:160px;"><a href="//www.28hse.com/">Parking spaces</a></li>
+             <br>
+                  
+                 <input type="text" size="30" name="searchresult" placeholder="Search:Area, Housing">
+                 <input type="submit" value=Search></div>
+  <div class="col-xs-6 col-sm-4"><span>Mortgage Calculator</span>
+
+          <form method="post" id="first" name="first" ;>
+                   
+            <input type="text" size="18" name="sale_price" id="sale_price" placeholder="Property Value(ten thousand)"> <label >x $10000</label>            
+        <br>            
+              <input type="text" size="18" name="down_percent" id="down_percent" placeholder="Loan Ratio(%)"> <label >%</label>           
+        <br>           
+              <input type="text" size="18" name="year_term" id="year_term" placeholder="Mortgage Repayment Period(year)"> <label >Year</label>             
+        <br>            
+              <input type="text" size="18" name="annual_interest_percent" id="annual_interest_percent" placeholder="Monthly Mortgage (%)"> <label >%</label>
+        <br>
+
+              
+            <button type="button" onclick="">Mortgage calculation</button>             
+
+          </form>
+  </div>
+  <!-- Optional: clear the XS cols if their content doesn't match in height -->
+
+  <div style="display:none;" class="col-xs-6 col-sm-4"> 
+    <form>    
+              <label for="monthlyrepay">Monthly contributions:</label> <input type="text" name="monthlyrepay" id="monthlyrepay" size="13" class="mort_cal_form_input">
+              <label for="total_loan">Loan Amount:</label> <input type="text" name="total_loan" id="total_loan" size="13" class="mort_cal_form_input"> <label for="total_loan">萬元</label>
+              
+          </form>
+  </div>
+
+   </div>
+
+  
+  <div id="buysearch" style="border:3px #cccccc solid;height:1000px;" class="col-xs-6 col-md-4"><div class="sh-title"><span class="search_icon_bw icon_pt_down control_cached"></span>Search criteria<input type="button" class="resetSh" value="Reset" onclick="javascript:search_change_reset();">
+                        </div>
+                        
+                     
+                        <dl class="sales_price" data-inside="s_sellrange" data-inside-box-item="s_sellrent_range_tag">
+                          <dt class=""><span class="search_icon_bw icon_pt_down"></span>Selling price</dt>
+                          <dd style="display: block;"><a href="javascript:;" data-bind="1">500,000 or less</a></dd>
+                          <dd><a href="javascript:;" data-bind="2">50-200(m)</a></dd>
+                          <dd><a href="javascript:;" data-bind="3">200-400(m)</a></dd>
+                          <dd><a href="javascript:;" data-bind="4">400-800(m)</a></dd>
+                          <dd><a href="javascript:;" data-bind="5">800-2,000(m)</a></dd>
+                          <dd><a href="javascript:;" data-bind="6">More than2,000(m)</a></dd>
+                        
+
+                        <dl class="property_room"  data-inside="s_roomno" data-inside-box-item="s_roomno_tag">
+                          <dt class=""><span class="search_icon_bw icon_pt_down"></span>Interval</dt>
+                          <dd style="display: block;"><a href="javascript:;" data-bind="7">Studio</a>   <a href="javascript:;" data-bind="1">1room</a></dd>
+                          <dd style="display: block;"><a href="javascript:;" data-bind="2">2room</a>  <a href="javascript:;" data-bind="3">3room</a></dd>
+                          <dd style="display: block;"><a href="javascript:;" data-bind="4">4room</a>   <a href="javascript:;" data-bind="5">5room</a></dd>
+                        </dl>
+
+                        <dl class="property_area" data-inside="s_area" data-inside-box-item="s_area_tag">
+                          <dt class=""><span class="search_icon_bw icon_pt_down"></span>Area(Square feet)</dt>
+                          <dd style="display: block;"><input type="radio" name='s_area_buildact' value="1" checked="checked" id='property_area_buildoractual_1'><label for="property_area_buildoractual_1">Construction area</label><input type="radio" name='s_area_buildact' value="2" id='property_area_buildoractual_2'><label for="property_area_buildoractual_2">Useful area</label></dd>
+                          <dd style="display: block;"><a href="javascript:;" data-bind="1">100Sq.ft. or less</a></dd>
+                          <dd><dd><a href="javascript:;" data-bind="2">100-500Sq.ft.</a></dd>
+                          <dd><a href="javascript:;" data-bind="3">500-1,000Sq.ft.</a></dd>
+                          <dd><a href="javascript:;" data-bind="4">1,000-2,000Sq.ft.</a></dd>
+                          <dd><a href="javascript:;" data-bind="5">More than 2,000Sq.ft.</a></dd>
+                          
+                        </dl>
+
+                        <dl class="property_age" data-inside="s_age" data-inside-box-item="s_age_tag">
+                          <dt class=""><span class="search_icon_bw icon_pt_down"></span>Estate age</dt>
+                          <dd><a href="javascript:;" data-bind="1">1year or less</a></dd>
+                          <dd><a href="javascript:;" data-bind="2">10year or less</a></dd>
+                          <dd><a href="javascript:;" data-bind="3">10-25year</a></dd>
+                          <dd><a href="javascript:;" data-bind="4">25-50year</a></dd>
+                          <dd><a href="javascript:;" data-bind="5">More than 50year</a></dd></dl></div>
+
+  <div id="broad" style="border:3px #cccccc solid;height:1000px;" class="col-xs-12 col-sm-6 col-md-8">
+
+
+
+
+  </div>
+
+  
+
+
+
+
+</div>
+
+</body>
+</html>

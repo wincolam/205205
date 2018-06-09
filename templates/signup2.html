@@ -1,32 +1,37 @@
-<!DOCTYPE html>
-     
-       <form action = "http://localhost:5000/signup" method = 'Post' >
-         <fieldset>
-           <legend>Signup Form</legend>
-           {{form.hidden_tag()}}
 
-           <div style = "font-size:20px; font-weight:bold; margin-left:150px;">
-             
-             {{form.username.label }}
+{% block body %}
+
+<body>
+  <div class = "container">
+
+    
+    <form action = "/signup" method = 'POST' >
+       <d1>
+         {{form.username.label }}
              <br>
              {{form.username}}
               {% for message in form.username.errors %}
             <span style="color:red"></span>
              {% endfor %}
 
-             <br>
-             {{ form.password.label}}<br>
+             <br>            {{ form.password.label}}<br>
              {{form.password}}
              <br>
+             {{ form.email.label }}
+             <br>
+             {{ form.email }}
+       </d1>
+       <p><input type=submit value=Register></p>
+    </form>
 
-             {{form.submit}}
-            </div>
-         </fieldset>
-       </form>
-             
-        	   
-          
+    {% if error %}
+      <p class="error"><strong>Error:</strong>{{error}}</p>
+    {% endif %}
 
+  </div>
+</body>
+
+{% endblock %}
 
 
 

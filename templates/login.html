@@ -23,6 +23,17 @@
          {{ form.password.label }}
          <br>
          {{ form.password }}
+         <br>
+         {{ form.email.label }}
+         <br>
+         {{ form.email }}
+         <ul>
+         {% for error in form.email.errors %}
+            <li style="color:red">{{ error }}</li>
+         {% endfor %}
+         </ul>
+         <br>
+
          
          <input type="submit" value="Sign In">
           
