@@ -24,6 +24,13 @@ db.close()
 
 
 
+@app.route("/", defaults={"filename": "index.html"})
+@app.route("/<path:filename>", methods = ["GET", "POST"])
+def display(filename):
+  try:
+    return render_template(filename)
+  except TemplateNotFound:
+    return application.send_static_file(filename)
 
 class LoginForm(Form):
   propertyname = StringField("username", validators=[InputRequired(), Length(min=4, max=15)])
@@ -31,6 +38,16 @@ class LoginForm(Form):
   remember = BooleanField('remember me')
   email = TextField("Email",[validators.Required("Please enter your email address.")])
   submit = SubmitField("Sign in")
+
+class add(Form):
+  name=TextField("Name of User",[validators.Required("Please enter your name.")])
+  price=TextField("Name of User",[validators.Required("Please enter your name.")])
+  interval=TextField("Name of User",[validators.Required("Please enter your name.")])
+  age=TextField("Name of User",[validators.Required("Please enter your name.")])
+  projecttype=TextField("Name of User",[validators.Required("Please enter your name.")])
+  developer=TextField("Name of User",[validators.Required("Please enter your name.")])
+  contactname=TextField("Name of User",[validators.Required("Please enter your name.")])
+  contactnumber=TextField("Name of User",[validators.Required("Please enter your name.")])
 
 
 class RegisterForm(Form):
@@ -42,18 +59,6 @@ class RegisterForm(Form):
 
 
 
-@app.route('/')
-def index():
-  return render_template("mianpage.html")
-
-@app.route('/add')
-def add():
-  return render_template("add.html")
-
-
-@app.route('/header')
-def random():
-  return render_template("header.html")
 
 
 @app.route('/login')
