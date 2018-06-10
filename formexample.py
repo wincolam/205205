@@ -16,7 +16,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'Thisisupposedtobesecret!'
 Bootstrap(app)
 
-db = pymysql.connect( host="localhost", user="root", password="123456", database="205CDE")
+db = pymysql.connect( host="localhost", user="user", password="123456", database="205CDE")
 cursor = db.cursor()
 sqlloginform = """CREATE TABLE loginform (email varchar(80) primary key, username varchar(15), password varchar(80))"""
 cursor.execute("DROP TABLE IF EXISTS loginform")
