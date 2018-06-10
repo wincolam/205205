@@ -1,29 +1,39 @@
-{% block body %}
+{% extends "base.html" %}
 
-<body>
+{% block contect %}
+
   <div class = "container">
 
-    
-    <form action = "/add" method = 'POST' >
-       <d1>
+    <form>
+      <h2>Please fill in</h2>
+      <label>Name</label>
+      <input type="text" id="inputname" placeholder="Name" required autofocus>
 
-             <br>
-             {{form.protocol}}
-             <br>{{ form.password.label}}<br>
-             {{form.password}}
-             <br>
-             {{ form.email.label }}
-             <br>
-             {{ form.email }}
-       </d1>
-       <p><input type=submit value=Register></p>
+      <label>price</label>
+      <input type="text" id="inputprice" placeholder="price" required autofocus>
+
+      <label>interval</label>
+      <input type="text" id="inputinterval" placeholder="interval" required autofocus>
+
+      <label>age</label>
+      <input type="text" id="inputage" placeholder="age" required autofocus>
+
+      <label>project type</label>
+      <input type="text" id="projecttype" placeholder="projecttype" required autofocus>
+
+      <label>developer</label>
+      <input type="text" id="inputdeveloper" placeholder="developer" required autofocus>
+
+      <label>contactname</label>
+      <input type="text" id="inputcontactname" placeholder="contactname" required autofocus>
+
+      <label>contactnumber</label>
+      <input type="text" id="inputcontactnumber" placeholder="contactnumber" required autofocus>
     </form>
 
-    {% if error %}
-      <p class="error"><strong>Error:</strong>{{error}}</p>
-    {% endif %}
-
   </div>
-</body>
+
 
 {% endblock %}
+
+

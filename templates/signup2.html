@@ -1,36 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
 
-{% block body %}
+	<div class="row">
+		{% if error %}
+		  	<p class="error"><strong>Error:</strong>{{ error }}</p>
+	    	{% endif %}
 
-<body>
-  <div class = "container">
+		<form action = "/signup" method = 'POST' >
+		       {{ form.username.label }}
+		       <br>
+		       {{form.username}}
+		       {% for message in form.username.errors %}
+			       <span style="color:red"></span>
+		       {% endfor %}
+		       <br>            
+		       
+		       {{ form.password.label}}
+		       <br>
+		       {{form.password}}
+		       <br>
 
-    
-    <form action = "/signup" method = 'POST' >
-       <d1>
-         {{form.username.label }}
-             <br>
-             {{form.username}}
-              {% for message in form.username.errors %}
-            <span style="color:red"></span>
-             {% endfor %}
-
-             <br>            {{ form.password.label}}<br>
-             {{form.password}}
-             <br>
-             {{ form.email.label }}
-             <br>
-             {{ form.email }}
-       </d1>
-       <p><input type=submit value=Register></p>
-    </form>
-
-    {% if error %}
-      <p class="error"><strong>Error:</strong>{{error}}</p>
-    {% endif %}
-
-  </div>
-</body>
-
+		       {{ form.email.label }}
+		       <br>
+		       {{ form.email }}
+		       <p><input type="submit" value="Register"></p>
+	       </form>
+       </div>
 {% endblock %}
 
 
