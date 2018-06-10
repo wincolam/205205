@@ -5,6 +5,7 @@ from wtforms import Form, TextField,RadioField, IntegerField, TextAreaField, Sub
 from wtforms import validators, ValidationError 
 from wtforms.validators import Email, InputRequired, Length
 from pymysql import escape_string as thwart
+from jinja2 import TemplateNotFound
 import pymysql
 import pymysql.cursors
 import wtforms
@@ -30,7 +31,7 @@ def display(filename):
   try:
     return render_template(filename)
   except TemplateNotFound:
-    return application.send_static_file(filename)
+    return app.send_static_file(filename)
 
 class LoginForm(Form):
   propertyname = StringField("username", validators=[InputRequired(), Length(min=4, max=15)])
@@ -39,15 +40,6 @@ class LoginForm(Form):
   email = TextField("Email",[validators.Required("Please enter your email address.")])
   submit = SubmitField("Sign in")
 
-class add(Form):
-  name=TextField("Name of User",[validators.Required("Please enter your name.")])
-  price=TextField("Name of User",[validators.Required("Please enter your name.")])
-  interval=TextField("Name of User",[validators.Required("Please enter your name.")])
-  age=TextField("Name of User",[validators.Required("Please enter your name.")])
-  projecttype=TextField("Name of User",[validators.Required("Please enter your name.")])
-  developer=TextField("Name of User",[validators.Required("Please enter your name.")])
-  contactname=TextField("Name of User",[validators.Required("Please enter your name.")])
-  contactnumber=TextField("Name of User",[validators.Required("Please enter your name.")])
 
 
 class RegisterForm(Form):
@@ -58,14 +50,16 @@ class RegisterForm(Form):
 
 
 
-
-
-
 @app.route('/login')
 def login():
   form = LoginForm()
 
   return render_template('login.html', form=form)
+
+@app.route('/add')
+def add():
+
+  return render_template('add.html', form=form)
   
   
 
@@ -79,7 +73,7 @@ def signup():
       username=request.form['username']
       password=request.form['password']
       email=request.form['email']
-      db = pymysql.connect( host="localhost", user="root", password="123456", database="205CDE")
+      db = pymysql.connect( host="localhost", user="user", password="123456", database="205CDE")
       cursor = db.cursor()
       
       sql = "INSERT INTO loginform (username, password, email) VALUES ('%s', '%s', '%s')" % (username, password, email)
