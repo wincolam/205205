@@ -28,17 +28,10 @@ db.close()
 @app.route("/", defaults={"filename": "index.html"})
 @app.route("/<path:filename>", methods = ["GET", "POST"])
 def display(filename):
-<<<<<<< HEAD
 	try:
 		return render_template(filename)
 	except TemplateNotFound:
 		return application.send_static_file(filename)
-=======
-  try:
-    return render_template(filename)
-  except TemplateNotFound:
-    return app.send_static_file(filename)
->>>>>>> abf8a4c9b82683fdf54e3dc3b913797d99c82aad
 
 class LoginForm(Form):
 	propertyname = StringField("username", validators=[InputRequired(), Length(min=4, max=15)])
@@ -47,7 +40,6 @@ class LoginForm(Form):
 	email = TextField("Email",[validators.Required("Please enter your email address.")])
 	submit = SubmitField("Sign in")
 
-<<<<<<< HEAD
 class add(Form):
 	name=TextField("Name of User",[validators.Required("Please enter your name.")])
 	price=TextField("Name of User",[validators.Required("Please enter your name.")])
@@ -57,9 +49,6 @@ class add(Form):
 	developer=TextField("Name of User",[validators.Required("Please enter your name.")])
 	contactname=TextField("Name of User",[validators.Required("Please enter your name.")])
 	contactnumber=TextField("Name of User",[validators.Required("Please enter your name.")])
-=======
->>>>>>> abf8a4c9b82683fdf54e3dc3b913797d99c82aad
-
 
 class RegisterForm(Form):
 	username = TextField("Name of User",[validators.Required("Please enter your name.")])
@@ -73,83 +62,71 @@ class RegisterForm(Form):
 def login():
 	form = LoginForm()
 
-<<<<<<< HEAD
 	return render_template('login.html', form=form)
 	
 	
 
 @app.route('/signup' , methods = ['GET', 'POST'])
 def signup():
-	
-	
-		form = RegisterForm(request.form)
+	form = RegisterForm(request.form)
 		 
-		if request.method == "POST":			
-			username=request.form['username']
-			password=request.form['password']
-			email=request.form['email']
-			db = pymysql.connect( host="localhost", user="root", password="123456", database="205CDE")
-			cursor = db.cursor()
-			
-			sql = "INSERT INTO loginform (username, password, email) VALUES ('%s', '%s', '%s')" % (username, password, email)
-			print(sql)
-			cursor.execute(sql)
-			db.commit()
-			flash("Thanks for sign up")
+	if request.method == "POST":			
+		username=request.form['username']
+		password=request.form['password']
+		email=request.form['email']
+		db = pymysql.connect( host="localhost", user="root", password="123456", database="205CDE")
+		cursor = db.cursor()
+		
+		sql = "INSERT INTO loginform (username, password, email) VALUES ('%s', '%s', '%s')" % (username, password, email)
+		print(sql)
+		cursor.execute(sql)
+		db.commit()
+		flash("Thanks for sign up")
 
-			cursor.close()
-			db.close()
-			gc.collect()
+		cursor.close()
+		db.close()
+		gc.collect()
 
-			session['logged_in'] = True
-			session['username'] = username
+		session['logged_in'] = True
+		session['username'] = username
 
-			return redirect(url_for('add'))
+		return redirect(url_for('add'))
 
-
-		return render_template('signup2.html', form = form)		 
-=======
-  return render_template('login.html', form=form)
+	return render_template('signup2.html', form = form)		 
 
 @app.route('/add')
 def add():
-
-  return render_template('add.html', form=form)
+    return render_template('add.html', form=form)
   
   
 
 @app.route('/signup' , methods = ['GET', 'POST'])
 def signup():
-  
-  
     form = RegisterForm(request.form)
      
     if request.method == "POST":      
-      username=request.form['username']
-      password=request.form['password']
-      email=request.form['email']
-      db = pymysql.connect( host="localhost", user="user", password="123456", database="205CDE")
-      cursor = db.cursor()
-      
-      sql = "INSERT INTO loginform (username, password, email) VALUES ('%s', '%s', '%s')" % (username, password, email)
-      print(sql)
-      cursor.execute(sql)
-      db.commit()
-      flash("Thanks for sign up")
+        username=request.form['username']
+        password=request.form['password']
+        email=request.form['email']
+        db = pymysql.connect( host="localhost", user="user", password="123456", database="205CDE")
+        cursor = db.cursor()
+        
+        sql = "INSERT INTO loginform (username, password, email) VALUES ('%s', '%s', '%s')" % (username, password, email)
+        print(sql)
+        cursor.execute(sql)
+        db.commit()
+        flash("Thanks for sign up")
 
-      cursor.close()
-      db.close()
-      gc.collect()
+        cursor.close()
+        db.close()
+        gc.collect()
 
-      session['logged_in'] = True
-      session['username'] = username
+        session['logged_in'] = True
+        session['username'] = username
 
-      return redirect(url_for('add'))
-
-
+        return redirect(url_for('add'))
     return render_template('signup2.html', form = form)    
->>>>>>> abf8a4c9b82683fdf54e3dc3b913797d99c82aad
 
 
-if (__name__) == '__main__':
+if __name__ == '__main__':
 	app.run(debug = True)
