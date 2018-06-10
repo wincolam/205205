@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, url_for, session, redirect
+
 from flask_bootstrap import Bootstrap
 from flask_wtf import Form
 from wtforms import Form, TextField,RadioField, IntegerField, TextAreaField, SubmitField, SelectField, StringField, PasswordField, BooleanField
@@ -27,34 +27,34 @@ db.close()
 @app.route("/", defaults={"filename": "index.html"})
 @app.route("/<path:filename>", methods = ["GET", "POST"])
 def display(filename):
-  try:
-    return render_template(filename)
-  except TemplateNotFound:
-    return application.send_static_file(filename)
+	try:
+		return render_template(filename)
+	except TemplateNotFound:
+		return application.send_static_file(filename)
 
 class LoginForm(Form):
-  propertyname = StringField("username", validators=[InputRequired(), Length(min=4, max=15)])
-  password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
-  remember = BooleanField('remember me')
-  email = TextField("Email",[validators.Required("Please enter your email address.")])
-  submit = SubmitField("Sign in")
+	propertyname = StringField("username", validators=[InputRequired(), Length(min=4, max=15)])
+	password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
+	remember = BooleanField('remember me')
+	email = TextField("Email",[validators.Required("Please enter your email address.")])
+	submit = SubmitField("Sign in")
 
 class add(Form):
-  name=TextField("Name of User",[validators.Required("Please enter your name.")])
-  price=TextField("Name of User",[validators.Required("Please enter your name.")])
-  interval=TextField("Name of User",[validators.Required("Please enter your name.")])
-  age=TextField("Name of User",[validators.Required("Please enter your name.")])
-  projecttype=TextField("Name of User",[validators.Required("Please enter your name.")])
-  developer=TextField("Name of User",[validators.Required("Please enter your name.")])
-  contactname=TextField("Name of User",[validators.Required("Please enter your name.")])
-  contactnumber=TextField("Name of User",[validators.Required("Please enter your name.")])
+	name=TextField("Name of User",[validators.Required("Please enter your name.")])
+	price=TextField("Name of User",[validators.Required("Please enter your name.")])
+	interval=TextField("Name of User",[validators.Required("Please enter your name.")])
+	age=TextField("Name of User",[validators.Required("Please enter your name.")])
+	projecttype=TextField("Name of User",[validators.Required("Please enter your name.")])
+	developer=TextField("Name of User",[validators.Required("Please enter your name.")])
+	contactname=TextField("Name of User",[validators.Required("Please enter your name.")])
+	contactnumber=TextField("Name of User",[validators.Required("Please enter your name.")])
 
 
 class RegisterForm(Form):
-  username = TextField("Name of User",[validators.Required("Please enter your name.")])
-  password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
-  email = TextField("Email",[validators.Required("Please enter your email address.")])
-  submit = SubmitField("submit")
+	username = TextField("Name of User",[validators.Required("Please enter your name.")])
+	password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=80)])
+	email = TextField("Email",[validators.Required("Please enter your email address.")])
+	submit = SubmitField("submit")
 
 
 
@@ -63,42 +63,42 @@ class RegisterForm(Form):
 
 @app.route('/login')
 def login():
-  form = LoginForm()
+	form = LoginForm()
 
-  return render_template('login.html', form=form)
-  
-  
+	return render_template('login.html', form=form)
+	
+	
 
 @app.route('/signup' , methods = ['GET', 'POST'])
 def signup():
-  
-  
-    form = RegisterForm(request.form)
-     
-    if request.method == "POST":      
-      username=request.form['username']
-      password=request.form['password']
-      email=request.form['email']
-      db = pymysql.connect( host="localhost", user="root", password="123456", database="205CDE")
-      cursor = db.cursor()
-      
-      sql = "INSERT INTO loginform (username, password, email) VALUES ('%s', '%s', '%s')" % (username, password, email)
-      print(sql)
-      cursor.execute(sql)
-      db.commit()
-      flash("Thanks for sign up")
+	
+	
+		form = RegisterForm(request.form)
+		 
+		if request.method == "POST":			
+			username=request.form['username']
+			password=request.form['password']
+			email=request.form['email']
+			db = pymysql.connect( host="localhost", user="root", password="123456", database="205CDE")
+			cursor = db.cursor()
+			
+			sql = "INSERT INTO loginform (username, password, email) VALUES ('%s', '%s', '%s')" % (username, password, email)
+			print(sql)
+			cursor.execute(sql)
+			db.commit()
+			flash("Thanks for sign up")
 
-      cursor.close()
-      db.close()
-      gc.collect()
+			cursor.close()
+			db.close()
+			gc.collect()
 
-      session['logged_in'] = True
-      session['username'] = username
+			session['logged_in'] = True
+			session['username'] = username
 
-      return redirect(url_for('add'))
+			return redirect(url_for('add'))
 
 
-    return render_template('signup2.html', form = form)    
+		return render_template('signup2.html', form = form)		 
 
 
 if (__name__) == '__main__':
