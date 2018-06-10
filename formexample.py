@@ -98,35 +98,5 @@ def signup():
 def add():
     return render_template('add.html', form=form)
   
-  
-
-@app.route('/signup' , methods = ['GET', 'POST'])
-def signup():
-    form = RegisterForm(request.form)
-     
-    if request.method == "POST":      
-        username=request.form['username']
-        password=request.form['password']
-        email=request.form['email']
-        db = pymysql.connect( host="localhost", user="user", password="123456", database="205CDE")
-        cursor = db.cursor()
-        
-        sql = "INSERT INTO loginform (username, password, email) VALUES ('%s', '%s', '%s')" % (username, password, email)
-        print(sql)
-        cursor.execute(sql)
-        db.commit()
-        flash("Thanks for sign up")
-
-        cursor.close()
-        db.close()
-        gc.collect()
-
-        session['logged_in'] = True
-        session['username'] = username
-
-        return redirect(url_for('add'))
-    return render_template('signup2.html', form = form)    
-
-
 if __name__ == '__main__':
 	app.run(debug = True)
