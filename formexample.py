@@ -31,7 +31,7 @@ def display(filename):
 	try:
 		return render_template(filename)
 	except TemplateNotFound:
-		return application.send_static_file(filename)
+		return app.send_static_file(filename)
 
 class LoginForm(Form):
 	propertyname = StringField("username", validators=[InputRequired(), Length(min=4, max=15)])
