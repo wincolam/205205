@@ -99,12 +99,17 @@ def signup():
 
         gc.collect()
 
-        session['logged_in'] = True
         session['username'] = username
 
         return redirect(url_for('add'))
 
     return render_template('signup2.html', form = form)      
+
+@app.route('/logout')
+def logout():
+    if 'username' in session:
+        session.pop('username', None)
+    return redirect(request.referrer)
 
 @app.route('/add')
 def Add():
