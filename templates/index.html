@@ -4,44 +4,6 @@
 	
 	
 <div id="page" class="row">
-
-<!--  	<div class="row">
-
-		<div class="col-xs-12 col-sm-6 col-md-8">
-
-			<ul class="nav nav-tabs">
-			  <li role="presentation" class="active"><a href="#">Home</a></li>
-			  <li role="presentation"><a href="#">For Buy</a></li>
-			  <li role="presentation"><a href="#">For Rent</a></li>
-			
-			  <li>
-				  <nav class="dropdown visible-xs">
-					  <a href="#" class="btn btn-default" aria-label="Left Align" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
-			          <ul class="dropdown-menu">
-			            <li><a href="#">Login</a></li>
-			            <li><a href="#">Sign In</a></li>
-			          </ul>
-		          </nav>
-			  </li>
-			</ul>
-
-		</div>
-
-		 <div  class="col-xs-6 col-md-4 hidden-xs">
-		 	<nav class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acount <span class="caret"></span></a>
-	          <ul class="dropdown-menu">
-	            <li><a href="#">Login</a></li>
-	            <li><a href="#">Sign In</a></li>
-	          </ul>
-			</nav>
-		</div>
-
-	</div> -->
-
-
-	
-
 	<div class="row">
 		<div class="col-xs-6 col-sm-4">Search:
 			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -78,13 +40,14 @@
 
 		<div class="col-xs-6 col-sm-4">
 			<span>Mortgage Calculator</span>
-			<form method="post" id="first" name="first" ;>								 
+			<form method="post" id="first" name="first">								 
 				<input type="text" size="18" name="sale_price" id="sale_price" placeholder="Property Value(ten thousand)"> <label >x $10000</label><br>						
 				<input type="text" size="18" name="down_percent" id="down_percent" placeholder="Loan Ratio(%)"> <label >%</label><br>					 
 				<input type="text" size="18" name="year_term" id="year_term" placeholder="Mortgage Repayment Period(year)"> <label >Year</label><br>						
-				<input type="text" size="18" name="annual_interest_percent" id="annual_interest_percent" placeholder="Monthly Mortgage (%)"> <label >%</label><br>
-				<button type="button" onclick="">Mortgage calculation</button>						 
+				<input type="text" size="18" name="annual_interest_percent" id="annual_interest_percent" placeholder="Monthly Mortgage (%)"> <label>%</label><br>
+				<button type="button" onclick="morgage()">Mortgage calculation</button>						 
 			 </form>
+			 <script src="/js/morgage.js"></script>
 		</div>
 
 		<!-- Optional: clear the XS cols if their content doesn't match in height -->
