@@ -26,6 +26,13 @@ def select(sql):
         cur.execute(sql)
         return cur.fetchall()
 
+def insert(sql):
+    print (sql)
+    conn = connection()
+    with conn.cursor() as cur:
+        r = cur.execute(sql)
+        conn.commit()
+        return r
 
     
 
@@ -63,14 +70,14 @@ class RegisterForm(Form):
 
 
 @app.route('/login', methods=["POST", "GET"])
-def login(errmsg=""):
+def login():
     if request.method == "POST":
         sql = "SELECT * FROM user WHERE username='%s' AND password='%s'" % (request.form['username'], request.form['password'])
         result = select(sql)
         if len(result) == 1:
             session['username'] = request.form['username']
             return redirect("/")
-        return redirect(url_for('login'), errmsg="incorrect username / password")
+        return render_template('login.html', errmsg="incorrect username / password")
         
     return render_template('login.html')
     
@@ -84,16 +91,12 @@ def signup():
         username=request.form['username']
         password=request.form['password']
         email=request.form['email']
-        db = pymysql.connect( host="localhost", user="root", password="123456", database="205CDE")
-        cursor = db.cursor()
         
-        sql = "INSERT INTO loginform (username, password, email) VALUES ('%s', '%s', '%s')" % (username, password, email)
-        cursor.execute(sql)
-        db.commit()
+        sql = "INSERT INTO user (username, password, email) VALUES ('%s', '%s', '%s')" % (username, password, email)
         flash("Thanks for sign up")
+        insert(sql)
 
-        cursor.close()
-        db.close()
+
         gc.collect()
 
         session['logged_in'] = True
@@ -104,8 +107,8 @@ def signup():
     return render_template('signup2.html', form = form)      
 
 @app.route('/add')
-def add():
-    return render_template('add.html', form=form)
+def Add():
+    return render_template('add.html', form=add())
   
 if __name__ == '__main__':
     app.run(debug = True)
